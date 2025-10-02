@@ -1,14 +1,28 @@
 -- Cargamos en una variable el apartado de atajos para poder crear nuestros atajos.
 -- Podemos ponerle el nombre que quieran, yo lo llamare "map"
 -- Usare la tecla <leader> que se define en el archivo "~/.config/nvim/init.lua"
+-- Se llama "<leader>" porque esta es la tecla LIDER, basicamente undiendo esta tecla se pueden iniciar muchas
+-- Acciones ya configuradas.
 
 local map = vim.keymap.set
 
-map("n", "<C-s>", ":w<CR>", { desc = 'Guardar cambios actuales' }) -- Atajo para guardar archivo actual undiendo el tipico "ctrl + s"
-map("n", "<C-S>", ":w!<CR>", { desc = 'Guardar todo de manera forzada' }) -- Atajo para guardar TODO sin importar si es un archivo protegido o elevado en permisos, usarlos en casos extremos "ctrl + S"
+-- Atajo para guardar archivo actual undiendo el tipico "ctrl + s"
+map("n", "<C-s>", ":w<CR>", { desc = 'Guardar cambios actuales' })
+
+
+-- Atajo para guardar TODO sin importar si es un archivo protegido o elevado en permisos, usarlos en casos extremos "ctrl + S"
+map("n", "<S-s>", ":w!<CR>", { desc = 'Guardar todo de manera forzada' }) 
 
 -- Atajos de movimiento y comportamiento de nvim --
--- Existen 4 modos en nvim: "normal(n)", "insertar(i)", "vision(v)", "comandos(":") --
+-- En nvim existen varios modos, estos nos servira para decidir en que modo el atajo se debe ejecutar.
+-- La mayoria de modos que se usan son "n(normal)" en este modo nosotros navegamos sin escribir en el codigo.
+-- Esto es comodo para crear nuestros comandos.
+-- Modos de Neovim:
+-- "n" → Modo normal (navegación, comandos)
+-- "i" → Modo insertar (escritura de texto)
+-- "v" → Modo visual (selección de texto)
+-- "x" → Modo visual por bloques
+-- "c" → Modo comando (cuando se presiona ":")
 
 -- Entonces los atajos se manejan de la siguiente manera:  
 -- map("Modo", "Teclas o Combinacion de teclas", "Comando o Accion a ejecutar", { desc = 'Descripcion que aparecera de guia' })
@@ -31,6 +45,32 @@ map("n", "<C-S>", ":w!<CR>", { desc = 'Guardar todo de manera forzada' }) -- Ata
 
 -- Diviertete configurando tus atajos, investiga mucho y explora, rompe y modifica todo a tu gusto <3 :D.
 
+-- Crea tu propio atajo usando esta plantilla:
+-- map("modo", "teclas", "comando", { desc = 'Tu descripción aquí' })
+
+-- Ejemplo:
+-- map("n", "<leader>h", ":nohlsearch<CR>", { desc = 'Quitar el resaltado de búsqueda' })
+
+-- Bien arriba en el archivo te deje 2 comandos que sirven para guardar, puedes tomarlos de ejemplo.
+-- Si no sabes porque puse "<C-s>", te lo explico rapidamente, La primer letra que es la "C" que esta en mayuscula.
+-- Hago referencia a la tecla ctrl de nuestro teclado, la letra que va despues del "-" que es "s" indica la tecla que se presiona despues.
+-- Entonces seria algo como esto "<C-Tecla>" con esto le indica a neovim que cuando presione la tecla ctrl y la fusione.
+-- Con la tecla "s" hace que se ejecute el comando ":w" que sirve para guardar los cambios en un archivo.
+
+-- Te dejo una lista de teclas que puedes usar :D
+
+-- Teclas especiales que puedes usar en tus atajos: --
+-- <C-*>   → Ctrl + tecla (por ejemplo <C-s> para guardar)
+-- <S-*>   → Shift + tecla (por ejemplo <S-q> para cerrar forzado)
+-- <A-*>   → Alt + tecla (puede variar según el sistema/terminal)
+-- <CR>    → Enter
+-- <Tab>   → Tabulador
+-- <Esc>   → Escape
+-- <leader> → Tecla líder, configurada como barra espaciadora (ver init.lua)
+-- Usa estas combinaciones para crear tus propios atajos personalizados!
+
+-- Diviertete configurando tus atajos, investiga mucho y explora, rompe y modifica todo a tu gusto <3 :D.
+
 
 -- Exploracion de archivos: 
 
@@ -39,6 +79,15 @@ map("n", "<leader>gs", ":Telescope git_status<CR>", { desc = 'Git status' }) -- 
 map("n", "º", ":Telescope buffers<CR>", { desc = 'Ver buffers abiertos' }) -- "Tecla º" -- Esto nos muestra los archivos en memoria que tenemos abiertos(Si te molesta la tecla cambiala)
 map("n", "q", ":q<CR>", { desc = 'Cerrar archivos de manera normal.' }) -- "Tecla q" -- Presionando la letra "q" vamos a cerrar archivos y ventanas que esten abiertos y guardados.
 map("n", "<S-q>", ":q!<CR>", { desc = 'Cerrar archivos de manera forzada - ¡CUIDADO!' }) -- "Shift + q" -- Esto hara que se cierre todo de manera forzada, ¡OJO SI NO GUARDASTE TUS ARCHIVOS, ESTA COMBINACION LOS CIERRA SIN GUARDAR, TEN CUIDADO!
--- map("n", "
+
+
+-- Para ser organizados dividi los atajos de teclado por categorias en la carpeta "keyConfig", asi lo unico que hago es cargar los atajos que voy a crear.
+-- Y asi somos mas organizados y evitamos tener tantos atajos en un mismo lugar, te recomiendo ir y mirar los otros atajos disponibles y configurar los tuyos <3.
+
+-- Usare el comando "require", este comando funciona para cargar archivos ".lua", lo usaremos de la siguiente manera:
+-- require("Aqui debes poner la dirrecion del archivo que quires")
+-- En la carpeta "keyConfig" estara un archivo llamado "init.lua", abreelo hay te enseño como crear tus atajos en diferentes archivos de manera organizada.
+
+require("keyConfig")
 
 
