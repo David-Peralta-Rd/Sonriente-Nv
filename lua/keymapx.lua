@@ -7,11 +7,7 @@
 local map = vim.keymap.set
 
 -- Atajo para guardar archivo actual undiendo el tipico "ctrl + s"
-map("n", "<C-s>", ":w<CR>", { desc = 'Guardar cambios actuales' })
-
-
--- Atajo para guardar TODO sin importar si es un archivo protegido o elevado en permisos, usarlos en casos extremos "ctrl + S"
-map("n", "<S-s>", ":w!<CR>", { desc = 'Guardar todo de manera forzada' }) 
+map("n", "<C-s>", ":w!<CR>", { desc = 'Guardar cambios actuales' }) -- Yo forzare siempre el guardado, puedes desactivarlo quitanto el "!" que aparece en ":w!<CR>"
 
 -- Atajos de movimiento y comportamiento de nvim --
 -- En nvim existen varios modos, estos nos servira para decidir en que modo el atajo se debe ejecutar.
@@ -77,8 +73,8 @@ map("n", "<S-s>", ":w!<CR>", { desc = 'Guardar todo de manera forzada' })
 map("n", "<leader><leader>", ":Telescope find_files<CR>", { desc = 'Buscar archivos' }) -- "Espacio + Espacio" -- Mostrara los archivos de la carpeta actual.
 map("n", "<leader>gs", ":Telescope git_status<CR>", { desc = 'Git status' }) -- "Espacio + gs" -- Esto nos enseñara el estatus de nuestros archivos versionados con "git"
 map("n", "º", ":Telescope buffers<CR>", { desc = 'Ver buffers abiertos' }) -- "Tecla º" -- Esto nos muestra los archivos en memoria que tenemos abiertos(Si te molesta la tecla cambiala)
-map("n", "q", ":q<CR>", { desc = 'Cerrar archivos de manera normal.' }) -- "Tecla q" -- Presionando la letra "q" vamos a cerrar archivos y ventanas que esten abiertos y guardados.
-map("n", "<S-q>", ":q!<CR>", { desc = 'Cerrar archivos de manera forzada - ¡CUIDADO!' }) -- "Shift + q" -- Esto hara que se cierre todo de manera forzada, ¡OJO SI NO GUARDASTE TUS ARCHIVOS, ESTA COMBINACION LOS CIERRA SIN GUARDAR, TEN CUIDADO!
+-- map("n", "q", ":q<CR>", { desc = 'Cerrar archivos de manera normal.' }) -- "Tecla q" -- Presionando la letra "q" vamos a cerrar archivos y ventanas que esten abiertos y guardados. (Estara por defecto serar forzadamente, pero si te gusta tenes mas seguridad descomenta esta linea y comenta la forzada)
+map("n", "q", ":q!<CR>", { desc = 'Cerrar archivos de manera forzada - ¡CUIDADO!' }) -- "Tecla q" -- Esto hara que se cierre todo de manera forzada, ¡OJO SI NO GUARDASTE TUS ARCHIVOS, ESTA COMBINACION LOS CIERRA SIN GUARDAR, TEN CUIDADO!
 
 
 -- Para ser organizados dividi los atajos de teclado por categorias en la carpeta "keyConfig", asi lo unico que hago es cargar los atajos que voy a crear.
