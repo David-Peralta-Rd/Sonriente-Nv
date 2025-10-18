@@ -7,8 +7,10 @@ local g = vim.g
 -- ========================================
 -- LÍDER KEYS (lo más importante primero)
 -- ========================================
-g.mapleader = " "
-g.maplocalleader = "_"
+-- g.mapleader = " "
+-- g.maplocalleader = "_"
+-- Para evitar problemas, se cargara en "lua/config/options.lua"
+-- Esto hara que se carge despues del lazy y no ocurran errores
 
 -- ========================================
 -- INTERFAZ Y NAVEGACIÓN
