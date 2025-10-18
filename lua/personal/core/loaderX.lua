@@ -4,7 +4,7 @@
 -- Ubicación: lua/custom/core/loaderX.lua
 
 local M = {}
-local cache = require("core.cacheX")
+local cache = require("personal.core.cacheX")
 
 -- ========================================
 -- PRIORIDADES DE CARGA
