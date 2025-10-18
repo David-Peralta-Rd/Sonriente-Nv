@@ -89,6 +89,7 @@ end
 local critical_modules = {
   "personal.core.utilX",   -- Utilidades base
   "personal.core.optionX", -- Opciones de Neovim
+
 }
 
 -- Fase 2: ALTA PRIORIDAD (cargan con pequeño delay)
