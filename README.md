@@ -1,4 +1,8 @@
-# 💤 LazyVim
+# Sonriente-Nv
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+Para empezar instala mi configuracion:
+
+```
+git clone https://github.com/David-Peralta-Rd/Sonriente-Nv ~/.config/nvim
+
+```
